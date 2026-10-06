@@ -518,7 +518,7 @@
             // Note: Apps Script returns a 302 redirect, so we can't read the response.
             // The data IS written on the server side before the redirect happens.
             // We treat a completed fetch (no network error) as success.
-            fetch('https://script.google.com/macros/s/AKfycbxtEIl9vUzleb3a3Ylu0Ky0KtcVaJfDjDkdq9PSKZCzvWIvAq5pbq39qMZD0KQGfO4/exec',{
+            fetch('https://script.google.com/macros/s/AKfycbz60-Kml86d4VI629n8SNIzAUtQs3wHuoqjgk5jEOOP9XsuaRVRJslihFcgfNdwMgu-/exec',{
                 redirect: "follow",
                 method: 'POST',
                 body: JSON.stringify({ name, phone, attendance }),

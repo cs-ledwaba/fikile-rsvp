@@ -10,20 +10,22 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --black: #0a0a0a;
-            --dark-brown: #4a2a1e;
-            --warm-brown: #8b6855;
-            --rich-brown: #a4745e;
-            --burgundy: #793729;
-            --cream: #f9e2d4;
-            --gold: #c49a6a;
-            --whatsapp: #25d366;
+            --black: #1a1a1a;
+            --cream: #f8f3ec;
+            --cream-alt: #f0e8dc;
+            --burgundy-deep: #4a1a28;
+            --burgundy: #6b2737;
+            --pink: #c48b8b;
+            --terracotta: #b8704a;
+            --cobalt: #1a4b8c;
+            --mustard: #c49a2a;
+            --gold: #b08050;
         }
         
         body {
             font-family: 'Cormorant Garamond', serif;
-            background: var(--black);
-            color: var(--cream);
+            background: var(--cream);
+            color: var(--black);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -52,7 +54,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, var(--dark-brown));
+            background: linear-gradient(transparent, var(--black));
             padding: 60px 30px 30px;
             text-align: center;
         }
@@ -70,7 +72,7 @@
             font-size: 12px;
             letter-spacing: 6px;
             text-transform: uppercase;
-            color: var(--dusty-rose);
+            color: var(--pink);
         }
         
         /* RSVP Section */
@@ -89,7 +91,7 @@
         .rsvp-header h2 {
             font-family: 'Great Vibes', cursive;
             font-size: 36px;
-            color: var(--cream);
+            color: var(--black);
             margin-bottom: 10px;
         }
         
@@ -98,7 +100,7 @@
             font-size: 11px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--gols);
+            color: var(--gold);
         }
         
         /* Form */
@@ -120,9 +122,9 @@
         .form-group select {
             width: 100%;
             padding: 16px 20px;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(196,154,106,0.3);
-            color: var(--cream);
+            background: rgba(0,0,0,0.05);
+            border: 1px solid rgba(107,39,55,0.3);
+            color: var(--black);
             font-family: 'Cormorant Garamond', serif;
             font-size: 18px;
             outline: none;
@@ -131,12 +133,12 @@
         
         .form-group input:focus,
         .form-group select:focus {
-            border-color: var(--gold);
-            background: rgba(255,255,255,0.12);
+            border-color: var(--burgundy);
+            background: rgba(0,0,0,0.08);
         }
         
         .form-group input::placeholder {
-            color: rgba(249,226,212,0.4);
+            color: rgba(26,26,26,0.4);
         }
         
         .form-group select {
@@ -149,8 +151,8 @@
         }
         
         .form-group select option {
-            background: var(--dark-brown);
-            color: var(--cream);
+            background: var(--cream);
+            color: var(--black);
         }
         
         /* Attendance Toggle */
@@ -163,9 +165,9 @@
         .toggle-btn {
             flex: 1;
             padding: 15px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(0,0,0,0.03);
             border: 1px solid rgba(212,165,116,0.3);
-            color: var(--cream);
+            color: var(--black);
             font-family: 'Montserrat', sans-serif;
             font-size: 11px;
             letter-spacing: 3px;
@@ -181,16 +183,16 @@
         }
         
         .toggle-btn:hover {
-            border-color: var(--gold);
+            border-color: var(--burgundy);
         }
         
         /* Submit Button */
         .submit-btn {
             width: 100%;
             padding: 18px;
-            background: linear-gradient(135deg, var(--burgundy), var(--dark-brown));
+            background: linear-gradient(135deg, var(--burgundy), var(--black));
             border: none;
-            color: var(--cream);
+            color: var(--black);
             font-family: 'Montserrat', sans-serif;
             font-size: 12px;
             letter-spacing: 4px;
@@ -232,7 +234,7 @@
             font-size: 10px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--dusty-rose);
+            color: var(--pink);
         }
         
         .whatsapp-btn {
@@ -240,7 +242,7 @@
             align-items: center;
             gap: 12px;
             padding: 18px 40px;
-            background: var(--whatsapp);
+            background: var(--mustard);
             border: none;
             color: white;
             font-family: 'Montserrat', sans-serif;
@@ -267,7 +269,7 @@
         .whatsapp-note {
             font-family: 'Cormorant Garamond', serif;
             font-size: 14px;
-            color: var(--warm-brown);
+            color: var(--terracotta);
             margin-top: 20px;
             font-style: italic;
         }
@@ -294,7 +296,7 @@
         
         .detail-item {
             padding: 25px 15px;
-            background: rgba(255,255,255,0.04);
+            background: rgba(0,0,0,0.03);
             border: 1px solid rgba(196,154,106,0.2);
         }
         
@@ -309,7 +311,7 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 15px;
             font-weight: 600;
-            color: var(--cream);
+            color: var(--black);
             margin-bottom: 8px;
             line-height: 1.4;
         }
@@ -319,7 +321,7 @@
             font-size: 9px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--dusty-rose);
+            color: var(--pink);
         }
         
         /* Footer */
@@ -334,7 +336,7 @@
         .footer-text {
             font-family: 'Great Vibes', cursive;
             font-size: 24px;
-            color: var(--warm-brown);
+            color: var(--terracotta);
             margin-bottom: 10px;
         }
         
@@ -343,7 +345,7 @@
             font-size: 10px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--dusty-rose);
+            color: var(--pink);
         }
         
         /* Animations */
@@ -375,7 +377,7 @@
             text-align: center;
             padding: 40px;
             background: rgba(37,211,102,0.1);
-            border: 1px solid var(--whatsapp);
+            border: 1px solid var(--mustard);
             margin-bottom: 30px;
         }
         
@@ -391,7 +393,7 @@
         .success-text {
             font-family: 'Cormorant Garamond', serif;
             font-size: 20px;
-            color: var(--whatsapp);
+            color: var(--mustard);
         }
     </style>
 </head>

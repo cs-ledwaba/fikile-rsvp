@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP - Simangaliso & Fikile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --dark-brown: #2a1a0e;
+            --warm-brown: #4a3020;
+            --rich-brown: #6b4a32;
+            --burgundy: #8b3a3a;
+            --dusty-rose: #b8867a;
+            --cream: #f5ebe0;
+            --gold: #d4a574;
+            --whatsapp: #25d366;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--dark-brown);
+            color: var(--cream);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section with Photo */
+        .hero {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: brightness(0.7) contrast(1.1);
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, var(--dark-brown));
+            padding: 60px 30px 30px;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px;
+            color: var(--gold);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--dusty-rose);
+        }
+        
+        /* RSVP Section */
+        .rsvp-section {
+            width: 100%;
+            max-width: 500px;
+            padding: 0 30px;
+            margin-bottom: 50px;
+        }
+        
+        .rsvp-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .rsvp-header h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        
+        .rsvp-header p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--dusty-rose);
+        }
+        
+        /* Form */
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dusty-rose);
+            margin-bottom: 8px;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212,165,116,0.3);
+            color: var(--cream);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--gold);
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .form-group input::placeholder {
+            color: rgba(245,235,224,0.4);
+        }
+        
+        .form-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23d4a574' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+        }
+        
+        .form-group select option {
+            background: var(--warm-brown);
+            color: var(--cream);
+        }
+        
+        /* Attendance Toggle */
+        .attendance-toggle {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .toggle-btn {
+            flex: 1;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212,165,116,0.3);
+            color: var(--cream);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .toggle-btn.active {
+            background: var(--burgundy);
+            border-color: var(--burgundy);
+        }
+        
+        .toggle-btn:hover {
+            border-color: var(--gold);
+        }
+        
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--burgundy), var(--rich-brown));
+            border: none;
+            color: var(--cream);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139,58,58,0.3);
+        }
+        
+        /* WhatsApp Section */
+        .whatsapp-section {
+            width: 100%;
+            max-width: 500px;
+            padding: 0 30px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .whatsapp-divider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .whatsapp-divider .line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        
+        .whatsapp-divider .text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--dusty-rose);
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 40px;
+            background: var(--whatsapp);
+            border: none;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37,211,102,0.3);
+        }
+        
+        .whatsapp-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+        
+        .whatsapp-note {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            color: var(--dusty-rose);
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        /* Details Section */
+        .details-section {
+            width: 100%;
+            max-width: 500px;
+            padding: 0 30px;
+            margin-bottom: 50px;
+        }
+        
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .details-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+        
+        .detail-item {
+            padding: 25px 15px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid #5A402F
+        }
+        
+        .detail-icon {
+            color: #D8B889;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .detail-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15px;
+            font-weight: 600;
+            color:#D8B889;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .detail-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dusty-rose);
+        }
+        
+        /* Footer */
+        .footer {
+            width: 100%;
+            padding: 40px 30px;
+            text-align: center;
+            background: linear-gradient(transparent, rgba(42,26,14,0.8));
+            margin-top: auto;
+        }
+        
+        .footer-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        
+        .footer-date {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--dusty-rose);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1.0s; }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            background: rgba(37,211,102,0.1);
+            border: 1px solid var(--whatsapp);
+            margin-bottom: 30px;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        .success-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .success-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            color: var(--whatsapp);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section with Photo -->
+    <div class="hero animate">
+        <!-- Replace src with Fikile's actual photo -->
+        <img src="couple-photo.jpg" alt="Simangaliso & Fikile" class="hero-image">
+        <div class="hero-overlay">
+            <div class="hero-title">Simangaliso & Fikile</div>
+            <div class="hero-subtitle">29 November 2026</div>
+        </div>
+    </div>
+    
+    <!-- RSVP Section -->
+    <div class="rsvp-section">
+        <div class="rsvp-header animate delay-1">
+            <h2>Kindly Respond</h2>
+            <p>We would be honoured by your presence in our celebration of Umabo </p>
+        </div>
+        
+        <form id="rsvpForm">
+            <div class="form-group animate delay-2">
+                <label>Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group animate delay-2">
+                <label>Phone Number</label>
+                <input type="tel" id="phone" placeholder="e.g. 083 123 4567">
+            </div>
+            
+            <div class="attendance-toggle animate delay-3">
+                <div class="toggle-btn active" data-value="accept" onclick="toggleAttendance(this)">
+                    ✓ Accept
+                </div>
+                <div class="toggle-btn" data-value="decline" onclick="toggleAttendance(this)">
+                    ✗ Decline
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn animate delay-4">
+                Submit RSVP
+            </button>
+        </form>
+        
+        <div class="success-message" id="successMessage">
+            <div class="success-icon">✓</div>
+            <div class="success-text">Thank you for your response!</div>
+        </div>
+    </div>
+    
+
+<!-- Event Details -->
+<div class="details-section animate delay-5">
+    <div class="details-grid">
+
+        <!-- Date -->
+        <div class="detail-item">
+            <div class="detail-icon">
+                <i class="fa-solid fa-calendar"></i>
+            </div>
+            <div class="detail-value">29 Nov 2026</div>
+            <div class="detail-label">Date</div>
+        </div>
+
+        <!-- Time -->
+        <div class="detail-item">
+            <div class="detail-icon">
+                <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="detail-value">12h00</div>
+            <div class="detail-label">Time</div>
+        </div>
+
+        <!-- Venue -->
+        <div class="detail-item">
+            <div class="detail-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="detail-value">4766 Johnny Mokua, Mohlakeng</div>
+            <div class="detail-label">Venue</div>
+        </div>
+
+        <!-- Attire -->
+        <div class="detail-item">
+            <div class="detail-icon">
+                <i class="fa-solid fa-shirt"></i>
+            </div>
+            <div class="detail-value">Something traditional</div>
+            <div class="detail-label">Attire</div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <div class="footer-text">We look forward to celebrating with you</div>
+    <div class="footer-date">Umabo Ceremony</div>
+</div>
+    
+    <script>
+        // Toggle attendance
+        function toggleAttendance(btn) {
+            document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+        
+        // Form submission
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const attendance = document.querySelector('.toggle-btn.active').dataset.value;
+            
+            // Show loading state
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            // Send to Google Sheets via Apps Script
+            // Note: Apps Script returns a 302 redirect, so we can't read the response.
+            // The data IS written on the server side before the redirect happens.
+            // We treat a completed fetch (no network error) as success.
+            fetch('https://script.google.com/macros/s/AKfycbxQh8b__bs6PYgGpIiSuPHvMvZHYUW_hI25HawUQQfcEufp3dnLTdc0WgbtjK81kC8qCg/exec', {
+                redirect: "follow",
+                method: 'POST',
+                body: JSON.stringify({ name, phone, attendance }),
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8",
+                },
+            })
+            .then(response => {
+                // 302 redirect = data was received by the script
+                // The POST body is processed before the redirect happens
+                document.getElementById('rsvpForm').style.display = 'none';
+                document.getElementById('successMessage').classList.add('show');
+                setTimeout(() => {
+                    document.getElementById('successMessage').classList.remove('show');
+                    document.getElementById('rsvpForm').style.display = 'block';
+                    document.getElementById('rsvpForm').reset();
+                    document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelector('[data-value="accept"]').classList.add('active');
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 5000);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error submitting your RSVP. Please try again.');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>

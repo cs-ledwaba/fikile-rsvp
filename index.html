@@ -165,8 +165,8 @@
         .toggle-btn {
             flex: 1;
             padding: 15px;
-            background: rgba(0,0,0,0.03);
-            border: 1px solid rgba(212,165,116,0.3);
+            background: var(--cream-alt);
+            border: 2px solid var(--terracotta);
             color: var(--black);
             font-family: 'Montserrat', sans-serif;
             font-size: 11px;
@@ -178,21 +178,23 @@
         }
         
         .toggle-btn.active {
-            background: var(--burgundy);
-            border-color: var(--burgundy);
+            background: var(--terracotta);
+            border-color: var(--terracotta);
+            color: var(--cream);
         }
         
         .toggle-btn:hover {
             border-color: var(--burgundy);
+            background: rgba(184,112,74,0.1);
         }
         
         /* Submit Button */
         .submit-btn {
             width: 100%;
             padding: 18px;
-            background: linear-gradient(135deg, var(--burgundy), var(--black));
+            background: var(--burgundy);
             border: none;
-            color: var(--black);
+            color: var(--cream);
             font-family: 'Montserrat', sans-serif;
             font-size: 12px;
             letter-spacing: 4px;
@@ -203,8 +205,9 @@
         }
         
         .submit-btn:hover {
+            background: var(--burgundy-deep);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(121,55,41,0.4);
+            box-shadow: 0 10px 30px rgba(107,39,55,0.4);
         }
         
         /* WhatsApp Section */
